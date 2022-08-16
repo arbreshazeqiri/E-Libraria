@@ -15,7 +15,7 @@ const NewBook = ({ isLoggedin, setIsLoggedin }) => {
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
     let [images, setImages] = useState([]);
-    let [names, setNames] = useState('');
+    let [names, setNames] = useState([]);
     const maxNumber = 1;
     let [img, setImg] = useState(0);
 

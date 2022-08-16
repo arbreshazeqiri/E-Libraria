@@ -15,7 +15,7 @@ const EditBook = ({ isLoggedin, setIsLoggedin }) => {
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
     let [images, setImages] = useState([]);
-    let [name, setName] = useState('');
+    let [names, setName] = useState([]);
     const maxNumber = 1;
     let [img, setImg] = useState(0);
     const { id } = useParams();
@@ -69,7 +69,7 @@ const EditBook = ({ isLoggedin, setIsLoggedin }) => {
                     genre,
                     rating,
                     link,
-                    name,
+                    names,
                 },
                     { withCredentials: true },
                 )

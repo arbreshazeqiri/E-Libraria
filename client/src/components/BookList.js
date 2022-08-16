@@ -39,7 +39,7 @@ const BookList = () => {
         {books.map((book) => (
           <div key={book._id} className="card">
             <Link to={`/book/${book._id}`}>
-              {/* <img src={require(`../../../server/public/${book.names[0]}`)} alt={book.title} /> */}
+              <img src={require(`../../../server/public/${book.names[0]}`)} alt={book.title} />
             </Link>
           </div>
         ))}
