@@ -90,7 +90,7 @@ const EditBook = ({ isLoggedin, setIsLoggedin }) => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", marginTop: "0em" }}>
-            <h4 style={{ margin: "0", marginRight: "21.5em", marginBottom: "0.5em" }}>ADD A BOOK TO OUR DATABASE</h4>
+            <h4 style={{ margin: "0", marginRight: "23.5em", marginBottom: "0.5em" }}>UPDATE {title.toUpperCase()}</h4>
             <div className="app-wrapper">
                 <div className="uploaded-images">
                     <ImageUploading
