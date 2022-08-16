@@ -48,9 +48,9 @@ const Register = ({ setIsLoggedin }) => {
         </div>
         <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} required />
         <input type="text" name="username" placeholder="Username" value={user.username} onChange={handleChange} required />
-        <input type="text" name="password" placeholder="Password" value={user.password} onChange={handleChange} required />
+        <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} required />
         <input
-          type="text"
+          type="password"
           name="confirmPassword"
           placeholder='Confirm Password'
           value={user.confirmPassword}

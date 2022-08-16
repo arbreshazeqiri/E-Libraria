@@ -33,7 +33,6 @@ app.post('/upload', (req, res) => {
 });
 
 app.delete('/delete/:name', (req, res) => {
-        console.log(req.params.name);
         fs.unlinkSync(`${__dirname}/public/${req.params.name}`);
         return res.status(200).send('Successfully! Image has been Deleted');
     }

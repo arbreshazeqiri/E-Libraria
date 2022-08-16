@@ -71,7 +71,7 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
         </div>
         <div className="form-wrapper" style={{display: "flex", flexDirection: "column", gap: "0.5em"}}>
           <h2>{book.title}</h2>
-          <h3 style={{color: "#C27BA0"}}>{book.author}</h3>
+          <h3 style={{color: "#7ba1c2"}}>{book.author}</h3>
           <p>{book.description}</p>
           <table style={{textAlign: "left"}}>
             <tr>
@@ -83,7 +83,7 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
               <td>{book.rating}</td>
             </tr>
           </table>
-          <p><a href={book.link}>Download book</a></p>
+          <p><a href={book.link} target="_blank">Download book</a></p>
           {console.log(creator, user)}
           {creator === userId ? (
             <div className="details-buttons">

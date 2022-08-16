@@ -27,7 +27,6 @@ const Profile = () => {
         <div className="profile-user-info">
           <h3 style={{ fontWeight: "bold", fontStyle: "italic" }}>{name}</h3>
           <h4>@{username}</h4>
-          <h5><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /> (18)</h5>
         </div>
       </div>
       <h2>ALL POSTS</h2>

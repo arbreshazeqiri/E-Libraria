@@ -90,7 +90,7 @@ const EditBook = ({ isLoggedin, setIsLoggedin }) => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", marginTop: "0em" }}>
-            <h4 style={{ margin: "0", marginRight: "26em", marginBottom: "0.5em" }}>ADD A BOOK TO OUR DATABASE</h4>
+            <h4 style={{ margin: "0", marginRight: "21.5em", marginBottom: "0.5em" }}>ADD A BOOK TO OUR DATABASE</h4>
             <div className="app-wrapper">
                 <div className="uploaded-images">
                     <ImageUploading
@@ -123,12 +123,11 @@ const EditBook = ({ isLoggedin, setIsLoggedin }) => {
                                 </div>
                                 <div className="mainbtndiv">
                                     <button className="btn btn-primary" id="styled-button-one"
-                                        style={{ width: "130px", height: "40px" }}
+                                        style={{ width: "160px", height: "40px" }}
                                         onClick={onImageUpload}
                                     >
                                         Upload an image
                                     </button>
-                                    <button className="btn btn-danger" id="styled-button-two" style={{ width: "160px", height: "40px" }} onClick={onImageRemoveAll}>Remove all images</button>
                                 </div>
                             </div>
                         )}

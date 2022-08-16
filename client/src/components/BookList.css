@@ -1,88 +1,88 @@
 .even-more-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-  }
-  
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    gap: 19px;
-  }
-  
-  .card {
-    box-shadow: 0px 5px 15px rgba(140, 140, 140, 0.5);
-    background-color: transparent;
-    width: 200px;
-  }
-  
-  .card img {
-    width: 100%;
-  }
-  
-  .carousel-item img {
-    width: 100%;
-  }
-  
-  .banner {
-    width:100%;
-  }
-  
-  .banner-button{
-    position: absolute;
-    width: 160px !important;
-    top: 19em;
-    left: 20em;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
 
-  .banner-quote {
-    position: absolute;
-    top: 1em;
-    left: 3.5em;
-    font-size: 5em;
-  }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 19px;
+}
 
-  .banner-author {
-    position: absolute;
-    top: 6.5em;
-    left: 9em;
-    font-size: 2em;
-    font-style: italic;
-  }
-  
-  .users-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
-    font-size: 100px;
-    width: 1250px;
-  }
-  
-  .user-card a{
-    text-decoration: none;
-    color: black;
-  }
-  
-  .user-card a:hover{
-    text-decoration: none;
-    color: black;
-  }
-  
-  .user-card-details {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .user-card-details span {
-    font-size: 20px;
-    color: #7ba1c2;
-  }
-  
-  .pre-footer{
-    color: #7ba1c2;
-    margin-top: 2em;
-  }
+.card {
+  box-shadow: 0px 5px 15px rgba(140, 140, 140, 0.5);
+  background-color: transparent;
+  max-height: 300px;
+}
+
+.card img {
+  max-height: 300px;
+}
+
+.carousel-item img {
+  width: 100%;
+}
+
+.banner {
+  width: 100%;
+}
+
+.banner-button {
+  position: absolute;
+  width: 160px !important;
+  top: 19em;
+  left: 20em;
+}
+
+.banner-quote {
+  position: absolute;
+  top: 1em;
+  left: 3.5em;
+  font-size: 5em;
+}
+
+.banner-author {
+  position: absolute;
+  top: 6.5em;
+  left: 9em;
+  font-size: 2em;
+  font-style: italic;
+}
+
+.users-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 100px;
+  width: 1250px;
+}
+
+.user-card a {
+  text-decoration: none;
+  color: black;
+}
+
+.user-card a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.user-card-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card-details span {
+  font-size: 20px;
+  color: #7ba1c2;
+}
+
+.pre-footer {
+  color: #7ba1c2;
+  margin-top: 2em;
+}

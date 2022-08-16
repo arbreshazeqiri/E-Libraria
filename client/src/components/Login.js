@@ -31,7 +31,7 @@ const Login = ({ setIsLoggedin }) => {
         <form onSubmit={handleSubmit}>
         <h2>Log in to Continue</h2>
             <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} required />
-            <input type="text" name="password" placeholder="Password" value={user.password} onChange={handleChange} required />
+            <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} required />
             <button id="styled-button-two" style={{width: "300px"}}>Login</button>
         </form>
         <span>Don't have an account?</span>
