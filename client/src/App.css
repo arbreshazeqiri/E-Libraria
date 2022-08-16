@@ -1,38 +1,289 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+}
+
+#styled-button-one {
+  background-color: #7ba1c2;
+  text-decoration: none;
+  color: white !important;
+  font-size: 15px;
+  font-weight: bold;
+  height: 35px;
+  border: none;
+  width: 100px;
+}
+
+#styled-button-two {
+  background-color: lightgray;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  height: 35px;
+  color: white !important;
+  border: none;
+  width: 100px;
+}
+
+.login-form h2 {
+  align-self: flex-start;
+  margin: 0;
+}
+
+.login-form {
+  margin: 5em;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  vertical-align: middle;
+  align-items: center;
+  gap: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  gap: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-form input {
+  width: 300px;
+  height: 30px;
+}
+
+.register-form {
+  background-color: rgb(231, 228, 228);
+  padding: 2em;
+  height: 500px;
+  width: 900px;
+  margin: 0em 20em;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  gap: 1em;
+}
+
+.register-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+  align-items: center;
+  gap: 1em;
+  margin-top: 2.5em;
+}
+
+.register-form input {
+  width: 300px;
+  height: 30px;
+}
+
+.register-form h2 {
+  align-self: center;
+  margin: 0;
+}
+
+.promo-pic {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.promo-pic h2 {
+  align-self: flex-start;
+  margin: 0em 0em 0.5em;
+}
+
+.name {
+  display: flex;
+  gap: 10px;
+}
+
+.name input {
+  width: 145px;
+}
+
+.terms-checkbox {
+  display: flex;
+  vertical-align: middle;
+  text-align: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+.terms-checkbox input {
+  height: 15px;
+}
+
+.country-section {
+  display: flex;
+  gap: 0.5em;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-wrapper {
+  display: flex;
+  margin: 0em 20em;
+  padding: 0em 2em;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: rgba(211, 211, 211, 0.408);
+  height: 600px;
+  width: 900px;
+  gap: 1em;
+}
+
+.uploaded-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.row2 {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  width: 450px;
+  min-height: 500px;
+  margin-top: -0.8em;
+  padding: 1em;
+  flex-wrap: wrap;
+  gap: 1em;
+  background-color: white;
+}
+
+.row2 img {
+  height: 180px;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  max-height: 240px;
+}
+
+.image-item__btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload__image-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+  gap: 1em;
+  padding-top: 0.5em;
+}
+
+.mainbtndiv {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+  height: 600px;
+}
+
+.form-wrapper form {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: left;
+  height: 630px;
+}
+
+.form-wrapper button {
+  align-self: flex-end;
+  border-radius: 6px;
+}
+
+.form-wrapper label {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.form-wrapper input,
+textarea {
+  width: 300px;
+}
+
+.text-danger {
+  margin: 0;
+}
+
+.slides img {
+  width: 400px;
+}
+
+.slides {
+  width: 450px;
+}
+
+.details-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.even-more-profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-left: 9em;
+  text-align: left;
+  margin: 0em 7.5em;
+}
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 10px;
+  width: 1100px;
+}
+
+.profile-card {
+  box-shadow: 0px 5px 15px rgba(140, 140, 140, 0.5);
+  background-color: transparent;
+  width: 250px;
+}
+
+.profile-card img {
+  width: 100%;
+}
+
+.profile-info {
+  display: flex;
+  gap: 0.5em;
+  justify-content: left;
+  margin-left: 1em;
+}
+
+.profile-pic {
+  font-size: 150px;
+}
+
+.profile-user-info{
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  justify-content: center;
 }
