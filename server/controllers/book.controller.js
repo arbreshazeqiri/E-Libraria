@@ -1,8 +1,12 @@
 const Book = require('../models/book.model');
+const jwt = require('jsonwebtoken');
+const SECRET = process.env.JWT_SECRET;
+const User  = require('../models/user.model');
 
 module.exports = {
     getBooks: (req, res) => {
         Book.find({}) 
+        .populate('createdBy', 'username email')
             .then((books) => {
                 res.status(201).json(books);
             })
@@ -11,6 +15,25 @@ module.exports = {
                 res.status(400).json({ message: 'Something went wrong in find all books', error: err });
         });
     },
+    getBooksByUser: (req, res) => {
+        console.log('IS THIS WORKING', req.params.username);
+        User.findOne({ username: req.params.username }).then((user) => {
+          Book.find({ createdBy: user._id })
+            .populate('createdBy', 'username email')
+            .then((books) => {
+              console.log('BOOKS:'.books);
+              res.json([books, user]);
+            })
+            .catch((err) => {
+              console.log('ERROR IN Get all', err);
+              res.status(400).json({ message: 'something went wrong in find all books by user', error: err });
+            })
+            .catch((err) => {
+              console.log('ERROR IN Get all', err);
+              res.status(400).json({ message: 'something went wrong in find all books', error: err });
+            });
+        });
+      },
     getBookById: (req, res) => {
         Book.findOne({ _id: req.params.id })
             .then((book) => {
@@ -22,7 +45,8 @@ module.exports = {
             });
     },
     createBook: (req, res) => {
-        Book.create(req.body)
+        const user = jwt.verify(req.cookies.userToken, SECRET);
+        Book.create({ ...req.body, createdBy: user._id })
         .then((newBook) => {
             res
             .status(201)
@@ -42,7 +66,7 @@ module.exports = {
         })
         .catch((err) => {
             console.log("ERROR IN GET UPDATE BOOK", err);
-            res.status(400).json({ message: "Something went wrong in update book", error: err });
+            res.status(400).json({ message: "Something went wrong in update book", errors: err.errors });
         });
     },
     deleteBook: (req, res) => {

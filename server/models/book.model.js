@@ -12,22 +12,33 @@ const BookSchema = mongoose.Schema(
             required: [true, 'Book author is required!'],
             minLength: [5, 'Author should be at least 5 characters long']
         },
-        price: {
-            type: Number,
-            required: [true, 'Book price is required!'],
-            min: [0, 'Price should be a positive number!']
+        description: {
+            type: String,
+            required: [true, 'Book description is required!'],
+            maxLength: [400, 'Description should be max 400 characters long'],
+        },
+        genre: {
+            type: String,
+            required: [true, 'Book genre is required!']
+        },
+        rating: {
+            type: String,
+            required: [true, 'Book rating is required!'],
+        },
+        link: {
+            type: String,
+            required: [true, 'Book link is required!'],
         },
         image: {
             type: String,
-            required: [true, 'Book image is required!']
         },
-        description: {
-            type: String
-        }
-
-    }, 
+        createdBy: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+        },
+    },
     {
-    timestamps: true
+        timestamps: true
     }
 );
 
