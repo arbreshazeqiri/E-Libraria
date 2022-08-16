@@ -33,8 +33,24 @@
   
   .banner-button{
     position: absolute;
-    top: 26em;
-    left: 4em;
+    width: 160px !important;
+    top: 19em;
+    left: 20em;
+  }
+
+  .banner-quote {
+    position: absolute;
+    top: 1em;
+    left: 3.5em;
+    font-size: 5em;
+  }
+
+  .banner-author {
+    position: absolute;
+    top: 6.5em;
+    left: 9em;
+    font-size: 2em;
+    font-style: italic;
   }
   
   .users-container {

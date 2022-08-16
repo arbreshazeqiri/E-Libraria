@@ -77,7 +77,7 @@ const NewBook = ({ isLoggedin, setIsLoggedin }) => {
 
     return (
         <div style={{ display: "flex", flexDirection: "column", marginTop: "0em" }}>
-            <h4 style={{ margin: "0", marginRight: "26em", marginBottom: "0.5em" }}>ADD A BOOK TO OUR DATABASE</h4>
+            <h4 style={{ margin: "0", marginRight: "21.5em", marginBottom: "0.5em" }}>ADD A BOOK TO OUR DATABASE</h4>
             <div className="app-wrapper">
                 <div className="uploaded-images">
                     <ImageUploading
@@ -95,7 +95,7 @@ const NewBook = ({ isLoggedin, setIsLoggedin }) => {
                             onImageRemove,
                         }) => (
                             <div className="upload__image-wrapper">
-                                {img === 1 ? <span className="text-danger" style={{ fontSize: "15px", marginTop: "-1.5em" }}>Upload between 1-4 images.</span>
+                                {img === 1 ? <span className="text-danger" style={{ fontSize: "15px", marginTop: "-1.5em" }}>Please upload a cover photo.</span>
                                     : <span style={{ fontSize: "15px", marginTop: "-1.5em", color: "transparent" }}>Something</span>}
                                 <div className="row2">
                                     {imageList.map((image, index) => (
@@ -110,12 +110,11 @@ const NewBook = ({ isLoggedin, setIsLoggedin }) => {
                                 </div>
                                 <div className="mainbtndiv">
                                     <button className="btn btn-primary" id="styled-button-one"
-                                        style={{ width: "130px", height: "40px" }}
+                                        style={{ width: "160px", height: "40px" }}
                                         onClick={onImageUpload}
                                     >
                                         Upload an image
                                     </button>
-                                    <button className="btn btn-danger" id="styled-button-two" style={{ width: "160px", height: "40px" }} onClick={onImageRemoveAll}>Remove all images</button>
                                 </div>
                             </div>
                         )}

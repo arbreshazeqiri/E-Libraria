@@ -30,8 +30,12 @@ const BookList = () => {
     <div className="even-more-container">
       <div className="banner">
         <Carousel className="banner-carousel">
-          {/* <Carousel.Item> <img src={require("../images/neutralbanner.jpg")} alt="banner" /></Carousel.Item>
-          <Carousel.Item><img src={require(`../images/pizap.webp`)} alt="smth" /><button id="styled-button-one" className="banner-button">Shop now</button></Carousel.Item> */}
+          <Carousel.Item> 
+            <img src={require("../images/pinkbanner.jpg")} alt="banner" />
+            <span className="banner-quote">QUOTE FROM A BOOK</span>
+            <span className="banner-author">BOOK NAME, BOOK AUTHOR</span>
+            <button id="styled-button-one" className="banner-button">Download now</button>
+            </Carousel.Item>
         </Carousel>
       </div>
       <h2 style={{ margin: "0", marginTop: "0.5em", marginRight: "30em", marginBottom: "0.5em" }}>EXPLORE OUR DIGITAL LIBRARY</h2>
@@ -44,7 +48,7 @@ const BookList = () => {
           </div>
         ))}
       </div>
-      <h2 style={{ margin: "0", marginLeft: "-1.8em", marginTop: "0.5em", marginRight: "30em", marginBottom: "0.5em" }}>SOME OF OUR FAVORITE AUTHORS</h2>
+      <h2 style={{ margin: "0", marginLeft: "-1.8em", marginTop: "0.5em", marginRight: "26em", marginBottom: "0.5em" }}>SOME OF OUR FAVORITE AUTHORS</h2>
       <div className="users-container">
         {users.map((user) => (
           <div key={user._id} className="user-card">

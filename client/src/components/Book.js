@@ -55,14 +55,14 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", marginTop: "0em" }}>
-      <h4 style={{ margin: "0", marginRight: "26em", marginBottom: "0.5em" }}>BOOK DETAILS</h4>
+      <h4 style={{ margin: "0", marginRight: "30em", marginBottom: "0.5em" }}>BOOK DETAILS</h4>
       <div className="app-wrapper">
         <div className="uploaded-images">
           <Carousel className="slides">
             {runCallback(() => {
               const row = [];
               for (var i = 0; i < length; i++) {
-                row.push(<Carousel.Item key={i}><img src={require(`../../../server/public/${book.names[i]}`)} alt="smth"></img></Carousel.Item>);
+                row.push(<Carousel.Item key={i}><img id="book-pic" src={require(`../../../server/public/${book.names[i]}`)} alt="smth"></img></Carousel.Item>);
               }
               return row;
             })
@@ -82,11 +82,8 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
               <td>Rating:</td>
               <td>{book.rating}</td>
             </tr>
-            <tr>
-              <td>Link:</td>
-              <td>{book.link}</td>
-            </tr>
           </table>
+          <p><a href={book.link}>Download book</a></p>
           {console.log(creator, user)}
           {creator === userId ? (
             <div className="details-buttons">
