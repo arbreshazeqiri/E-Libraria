@@ -17,7 +17,8 @@ const BookList = () => {
         console.log(res.data);
         setBooks(res.data);
         Object.keys(res.data).forEach(function (key, index) {
-          authors.push(res.data[key].author);
+          if (!authors.includes(res.data[key].author))
+            authors.push(res.data[key].author);
         });
         console.log(authors, "authors");
       })
