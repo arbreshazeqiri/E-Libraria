@@ -55,18 +55,23 @@ const BookList = () => {
       >
         EXPLORE OUR DIGITAL LIBRARY
       </h2>
-      <div className="container">
+      <div class="container">
         {books.map((book) => (
-          <div key={book._id} className="card">
-            <Link to={`/book/${book._id}`}>
-              <img
-                src={require(`../../../server/public/${book.names[0]}`)}
-                alt={book.title}
-              />
-            </Link>
+          <div key={book._id} class="book">
+            <div class="front">
+              <div class="cover">
+                <Link to={`/book/${book._id}`}>
+                  <img
+                    src={require(`../../../server/public/${book.names[0]}`)}
+                    alt={book.title}
+                  />
+                </Link>
+              </div>
+            </div>
           </div>
         ))}
       </div>
+
       <h2
         style={{
           margin: "0",
