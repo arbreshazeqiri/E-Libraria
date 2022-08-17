@@ -18,7 +18,8 @@ const BookList = () => {
         console.log(res.data);
         setBooks(res.data);
         Object.keys(res.data).forEach(function (key, index) {
-          authors.push(res.data[key].author);
+          if (!authors.includes(res.data[key].author))
+            authors.push(res.data[key].author);
         });
         console.log(authors, "authors");
       })
@@ -65,11 +66,11 @@ const BookList = () => {
       >
         EXPLORE OUR DIGITAL LIBRARY
       </h2>
-      <div class="container">
+      <div className="container">
         {books.map((book) => (
-          <div key={book._id} class="book">
-            <div class="front">
-              <div class="cover">
+          <div key={book._id} className="book">
+            <div className="front">
+              <div className="cover">
                 <Link to={`/book/${book._id}`}>
                   <img
                     src={require(`../../../server/public/${book.names[0]}`)}
@@ -96,8 +97,8 @@ const BookList = () => {
       <div className="users-container">
         {authors
           .filter((item, index) => index < 7)
-          .map((author) => (
-            <div className="user-card">
+          .map((author, i) => (
+            <div className="user-card" key={i}>
               <div className="user-card-details">
                 {/* <FaUser /> */}
                 <img src={authorimg} alt="img" />
