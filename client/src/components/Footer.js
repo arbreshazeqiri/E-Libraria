@@ -7,7 +7,7 @@ import {
   FaTwitter,
   FaInstagram,
   FaWhatsapp,
-  FaRegEnvelope,
+  FaRegEnvelope
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -82,9 +82,7 @@ const Footer = () => {
           </div>
 
           <div className="row">
-            <div className="container-fluid">
-              <div className="copyright"> Copyright 2022 </div>
-            </div>
+            <div className="container-fluid">Copyright 2022</div>
           </div>
         </div>
       </footer>
