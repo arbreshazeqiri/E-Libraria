@@ -6,8 +6,9 @@ import { FaSearch, FaBook, FaUser } from 'react-icons/fa';
 import 'bootstrap/dist/css/bootstrap.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-const Header = ({ isLoggedin, setIsLoggedin }) => {
+const Header = ({ isLoggedin, setIsLoggedin, headerToApp }) => {
     const [user, setUser] = useState(null);
+    const [query, setQuery] = useState(null);
     const navigate = useNavigate();
     useEffect(() => {
         axios
@@ -19,9 +20,9 @@ const Header = ({ isLoggedin, setIsLoggedin }) => {
     }, [isLoggedin]);
 
     const handleSubmit = (e) => {
-    };
-
-    const handleChange = (e) => {
+        e.preventDefault();
+        headerToApp(query.split(/\W+/).filter(element => element.length > 1));
+        navigate('/search');
     };
 
     const goToProfile = (e) => {
@@ -45,7 +46,7 @@ const Header = ({ isLoggedin, setIsLoggedin }) => {
                 <div className="search-container">
                     <form onSubmit={handleSubmit}>
                         <button className="search-icon"><FaSearch /></button>
-                        <input type="text" name="search-box" placeholder='Search for books, authors, papers, etc.' onChange={handleChange} required />
+                        <input type="text" name="search-box" placeholder='Search for books, authors, papers, etc.' onChange={(e) => setQuery(e.target.value)} required />
                     </form>
                 </div>
                 <div className="auth" style={{ display: "flex", justifyContent: "space-between" }}>

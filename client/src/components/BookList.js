@@ -14,19 +14,16 @@ const BookList = () => {
     axios
       .get("http://localhost:8000/api/books", { withCredentials: true })
       .then((res) => {
-        console.log(res.data);
         setBooks(res.data);
         Object.keys(res.data).forEach(function (key, index) {
           if (!authors.includes(res.data[key].author))
             authors.push(res.data[key].author);
         });
-        console.log(authors, "authors");
       })
       .catch((err) => console.log(err));
     axios
       .get("http://localhost:8000/api/users", { withCredentials: true })
       .then((res) => {
-        console.log(res.data);
         setUsers(res.data);
       })
       .catch((err) => console.log(err));
