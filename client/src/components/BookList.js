@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./BookList.css";
 import Carousel from "react-bootstrap/Carousel";
 import { FaUser } from "react-icons/fa";
+import authorimg from "../images/author2.jpg";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -34,12 +35,21 @@ const BookList = () => {
       <div className="banner">
         <Carousel className="banner-carousel">
           <Carousel.Item>
-            <img src={require("../images/pinkbanner.jpg")} alt="banner" />
-            <span className="banner-quote">QUOTE FROM A BOOK</span>
-            <span className="banner-author">BOOK NAME, BOOK AUTHOR</span>
-            <button id="styled-button-one" className="banner-button">
-              Download now
-            </button>
+            <img src={require("../images/books2.jpg")} alt="banner" />
+            <span className="banner-quote">
+              “Books are the plane, and the train, and the road.
+              <br /> They are the destination, and the journey. They are home.”
+            </span>
+            <span className="banner-author">
+              How Reading Changed My Life ― Anna Quindlen,
+            </span>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src={require("../images/books.jpg")} alt="banner" />
+            <span className="banner-quote">
+              “We lose ourselves in books. We find ourselves there too.”
+            </span>
+            <span className="banner-author">― Anonymous</span>
           </Carousel.Item>
         </Carousel>
       </div>
@@ -71,13 +81,13 @@ const BookList = () => {
       </div>
 
       <h2
-        style={{
-          margin: "0",
-          marginLeft: "-1.8em",
-          marginTop: "0.5em",
-          marginRight: "26em",
-          marginBottom: "0.5em",
-        }}
+      // style={{
+      //   margin: "0",
+      //   marginLeft: "-1.8em",
+      //   marginTop: "0.5em",
+      //   marginRight: "26em",
+      //   marginBottom: "0.5em",
+      // }}
       >
         SOME OF OUR FAVORITE AUTHORS
       </h2>
@@ -87,7 +97,8 @@ const BookList = () => {
           .map((author, i) => (
             <div className="user-card" key={i}>
               <div className="user-card-details">
-                <FaUser />
+                {/* <FaUser /> */}
+                <img src={authorimg} alt="img" />
                 <span style={{ color: "black" }}>
                   <span
                     style={{
