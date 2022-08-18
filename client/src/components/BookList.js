@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./BookList.css";
 import Carousel from "react-bootstrap/Carousel";
-import { FaUser } from "react-icons/fa";
+import Categories from "./Categories";
 import authorimg from "../images/author2.jpg";
 
 const BookList = () => {
@@ -58,7 +58,7 @@ const BookList = () => {
           margin: "0",
           marginTop: "0.5em",
           marginRight: "30em",
-          marginBottom: "0.5em",
+          marginBottom: "0.5em"
         }}
       >
         EXPLORE OUR DIGITAL LIBRARY
@@ -79,6 +79,7 @@ const BookList = () => {
           </div>
         ))}
       </div>
+      <Categories />
 
       <h2
       // style={{
@@ -104,7 +105,7 @@ const BookList = () => {
                     style={{
                       fontSize: "30px",
                       fontWeight: "bold",
-                      marginRight: "5px",
+                      marginRight: "5px"
                     }}
                   ></span>
                   {author}
@@ -113,6 +114,7 @@ const BookList = () => {
             </div>
           ))}
       </div>
+
       <h3 className="pre-footer">
         Be part of the community that is transforming our reading experience one
         book at a time.

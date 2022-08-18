@@ -90,7 +90,10 @@ const Header = ({ isLoggedin, setIsLoggedin, headerToApp }) => {
             </div>
           ) : (
             <div className="auth-buttons">
-              <button id="styled-button-one" style={{ marginLeft: "5px" }}>
+              <button
+                id="styled-button-one"
+                style={{ marginLeft: "5px", borderRadius: "15px" }}
+              >
                 <NavLink className="nav-link" to="/login">
                   Log in
                 </NavLink>
