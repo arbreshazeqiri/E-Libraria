@@ -2,10 +2,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
-// import promoPicture from '../images/promopic.webp';
 
 const Register = ({ setIsLoggedin }) => {
   const navigate = useNavigate();
+  const [errors, setErrors] = useState([]);
   const [user, setUser] = useState({
     firstname: '',
     lastname:'',
@@ -32,14 +32,20 @@ const Register = ({ setIsLoggedin }) => {
         setIsLoggedin(true);
         navigate('/');
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        const errorResponse = err.response.data.errors;
+        const errorArr = [];
+        for (const key of Object.keys(errorResponse)) {
+            errorArr.push(errorResponse[key].message)
+        }
+        setErrors(errorArr);
+    })
   };
 
   return (
     <div className="register-form" style={{marginTop: '3em'}}>
       <div className="promo-pic">
         <h2>GET READY</h2>
-        {/* <img src={promoPicture} style={{ height: "400px" }} alt="promo"></img> */}
       </div>
       <form onSubmit={handleSubmit}>
         <div className="name">
@@ -68,6 +74,7 @@ const Register = ({ setIsLoggedin }) => {
         <span className="terms-checkbox">
           <input type="checkbox" name="terms" placeholder="Terms and Conditions" style={{ width: "20px" }} />I agree to the<a href="/" style={{ padding: "0px 3px" }}>Terms of Use</a>and<a href="/" style={{ padding: "0px 3px" }}>Privacy Policy.</a>
         </span>
+        <span style={{ color: 'red' }}>{(errors !== null) ? errors : null}</span>
         <button id="styled-button-one" type="submit" name="register" style={{ width: "310px" }}>Register</button>
       </form>
     </div>

@@ -6,6 +6,7 @@ import './Header.css';
 
 const Login = ({ setIsLoggedin }) => {
     const navigate = useNavigate();
+    const [errors, setErrors] = useState([]);
     const [user, setUser] = useState({
         email: '',
         password: '',
@@ -25,13 +26,16 @@ const Login = ({ setIsLoggedin }) => {
                 setIsLoggedin(true);
                 navigate('/');
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                setErrors(err.response.data.error);
+            });
     };
     return (<div className="login-form">
         <form onSubmit={handleSubmit}>
         <h2>Log in to Continue</h2>
             <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} required />
             <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} required />
+            {errors && <span className="text-danger">{errors}</span>}
             <button id="styled-button-two" style={{width: "300px"}}>Login</button>
         </form>
         <span>Don't have an account?</span>
