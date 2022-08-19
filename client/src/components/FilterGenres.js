@@ -2,23 +2,23 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const FilterAuthors = () => {
-    const {author} = useParams();
+const FilterGenres = () => {
+    const { genre } = useParams();
     const [filterResults, setFilterResults] = useState([]);
     const [error, setError] = useState(false);
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/api/books-by-author/${author}`)
+            .get(`http://localhost:8000/api/books-by-genre/${genre}`)
             .then((res) => {
                 setFilterResults(res.data);
             })
             .catch((err) => setError(err));
-    }, [author]);
+    }, [genre]);
 
     return (
         <div>
-            <h3 style={{ textAlign: 'center' }}>{author}'s books:</h3>
+            <h3 style={{ textAlign: 'center' }}>{genre} books:</h3>
             <div className="container">
                 {filterResults.map((book) => (
                     <div key={book._id} className="book">
@@ -40,4 +40,4 @@ const FilterAuthors = () => {
     );
 };
 
-export default FilterAuthors;
+export default FilterGenres;

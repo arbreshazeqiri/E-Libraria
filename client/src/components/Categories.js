@@ -1,56 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Categories.css";
+import { useNavigate } from 'react-router-dom';
 
-const Categories = () => {
+const Categories = ({ genres }) => {
+  const navigate = useNavigate();
   return (
     <div className="top-categories">
-      <h2 style={{marginBottom: "0.5em"}}>FILTER BOOKS BY GENRE</h2>
+      <h2 style={{ marginBottom: "1.5em" }}>FILTER BOOKS BY GENRE</h2>
       <div className="container3">
-        <div className="first">
-          <button type="button" className="btn btn-light">
-            MYSTERY
-          </button>
-          <button type="button" className="btn btn-light">
-            DRAMA
-          </button>
-          <button type="button" className="btn btn-light">
-            THRILLER
-          </button>
-          <button type="button" className="btn btn-light">
-            PSYCHOLOGY
-          </button>
-          <button type="button" className="btn btn-light">
-            FICTION
-          </button>
-        </div>
-        <div className="second">
-          <button type="button" className="btn btn-light">
-            ROMANCE
-          </button>
-          <button type="button" className="btn btn-light">
-            NON-FICTION
-          </button>
-          <button type="button" className="btn btn-light">
-            AUTOBIOGRAPHY
-          </button>
-          <button type="button" className="btn btn-light">
-            SELF-HELP
-          </button>
-        </div>
-        <div className="third">
-          <button type="button" className="btn btn-light">
-            HISTORY
-          </button>
-          <button type="button" className="btn btn-light">
-            HISTORICAL-FICTION
-          </button>
-          <button type="button" className="btn btn-light">
-            CONTEMPORARY
-          </button>
-          <button type="button" className="btn btn-light">
-            FANTASY
-          </button>
-        </div>
+        {genres.map((genre, i) => (
+          <div className="user-card" key={i}>
+            <button type="button" className="btn btn-light" onClick={(e) => navigate('/filter-genres/' + genre)}>
+              {genre}
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );

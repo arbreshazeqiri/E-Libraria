@@ -8,6 +8,7 @@ import "./BookList.css";
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const [authors] = useState([]);
+  const [genres] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,12 +17,16 @@ const BookList = () => {
       .then((res) => {
         setBooks(res.data);
         Object.keys(res.data).forEach(function (key, index) {
-          if (!authors.includes(res.data[key].author))
+          if (!authors.includes(res.data[key].author)) {
             authors.push(res.data[key].author);
+          }
+          if (!genres.includes(res.data[key].genre)) {
+            genres.push(res.data[key].genre);
+          }
         });
       })
       .catch((err) => console.log(err));
-  }, [authors]);
+  }, [authors, genres]);
 
   return (
     <div className="even-more-container">
@@ -69,7 +74,7 @@ const BookList = () => {
           </div>
         ))}
       </div>
-      <Categories />
+      <Categories genres={genres} />
 
       <h2 style={{ marginBottom: "1em" }}>
         FILTER BOOKS BY AUTHOR
@@ -77,7 +82,7 @@ const BookList = () => {
       <div className="users-container">
         {authors.map((author, i) => (
           <div className="user-card" key={i}>
-            <button type="button" className="btn btn-light" onClick={(e) => navigate('/filter/' + author)}>
+            <button type="button" className="btn btn-light" onClick={(e) => navigate('/filter-authors/' + author)}>
               {author}
             </button>
           </div>
