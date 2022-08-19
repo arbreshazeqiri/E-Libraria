@@ -28,12 +28,12 @@ const login = async (req, res) => {
   const userDocument = await User.findOne({ email: req.body.email });
   console.log('USERDOC', userDocument);
   if (!userDocument) {
-    res.status(400).json({ error: 'invalid email/password' });
+    res.status(400).json({ error: 'Email not registered.' });
   } else {
     try {
       const isPasswordValid = await bcrypt.compare(req.body.password, userDocument.password);
       if (!isPasswordValid) {
-        res.status(400).json({ error: 'invalid email/password' });
+        res.status(400).json({ error: 'Invalid credentials.' });
       } else {
         const userToken = jwt.sign(
           { _id: userDocument._id, email: userDocument.email, username: userDocument.username },
