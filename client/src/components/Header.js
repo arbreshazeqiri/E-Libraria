@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import "./Header.css";
-import axios from "axios";
 import { FaSearch, FaBook, FaUser } from "react-icons/fa";
-import "bootstrap/dist/css/bootstrap.css";
 import Dropdown from "react-bootstrap/Dropdown";
-import { GiBookshelf } from "react-icons/gi";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.css";
+import "./Header.css";
 
-const Header = ({ isLoggedin, setIsLoggedin}) => {
+const Header = ({ isLoggedin, setIsLoggedin }) => {
     const [user, setUser] = useState(null);
     const [search, setSearch] = useState("");
     const navigate = useNavigate();
@@ -41,10 +40,9 @@ const Header = ({ isLoggedin, setIsLoggedin}) => {
     return (
         <div className="header-column">
             <header className="header">
-                <div className="icon-title d-flex">
-                    <GiBookshelf style={{ fontSize: "43px", color: "#7ba1c2" }} />{" "}
-                    <NavLink className="nav-link" to="/">
-                        <h1>E-Libraria</h1>
+                <div>
+                    <NavLink className="nav-link" to="/" style={{ display: "flex" }}>
+                        <img src={require("../images/icon2.png")} alt="website logo" style={{ height: "40px", marginRight: "5px" }} /><h1>E-Libraria</h1>
                     </NavLink>
                 </div>
 

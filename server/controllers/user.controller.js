@@ -47,7 +47,7 @@ const login = async (req, res) => {
       }
     } catch (error) {
       console.log('LOGIN ERROR', error);
-      res.status(400).json({ error: 'invalid email/password' });
+      res.status(400).json({ error: 'Invalid credentials.' });
     }
   }
 };

@@ -58,46 +58,20 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
-  font-size: 100px;
   width: 1250px;
-  margin-top: 50px;
 }
 
-.user-card a {
-  text-decoration: none;
-  color: black;
-}
-
-.user-card a:hover {
-  text-decoration: none;
-  color: black;
-}
-
-.user-card-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.user-card-details img {
-  width: 80px;
-  align-self: center;
-}
-
-.user-card-details span {
-  font-size: 20px;
-  /* font-weight: bold; */
-  color: #7ba1c2;
+.user-card {
+  height: 46px;
 }
 
 .pre-footer {
   color: #7ba1c2;
-  margin-top: 2em;
+  margin-top: 2.5em;
 }
 
 /* ******** BOOK STYLE & ANIMATION ******** */
-html,
 body {
-  background-color: #c4bec6;
   display: border-box;
 }
 

@@ -32,11 +32,11 @@ const Login = ({ setIsLoggedin }) => {
     };
     return (<div className="login-form">
         <form onSubmit={handleSubmit}>
-        <h2>Log in to Continue</h2>
+        <h2>LOG IN TO CONTINUE</h2>
             <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} required />
             <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} required />
             {errors && <span className="text-danger">{errors}</span>}
-            <button id="styled-button-two" style={{width: "300px"}}>Login</button>
+            <button id="styled-button-two" style={{width: "300px"}}>Log in</button>
         </form>
         <span>Don't have an account?</span>
         <button id="styled-button-one" style={{width: "300px"}}><NavLink className="nav-link" to="/register">Sign up</NavLink></button>

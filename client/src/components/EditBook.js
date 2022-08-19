@@ -35,7 +35,6 @@ const EditBook = ({ isLoggedin, setIsLoggedin }) => {
         axios
             .get(`http://localhost:8000/api/books/${id}`)
             .then((res) => {
-                console.log(res.data);
                 setTitle(res.data.title);
                 setAuthor(res.data.author);
                 setDescription(res.data.description);
@@ -79,7 +78,6 @@ const EditBook = ({ isLoggedin, setIsLoggedin }) => {
                 })
                 .catch((err) => {
                     setErrors(err.response.data.errors);
-                    console.log(err.response.data.errors);
                 });
         }
         else {
@@ -123,7 +121,7 @@ const EditBook = ({ isLoggedin, setIsLoggedin }) => {
                                 </div>
                                 <div className="mainbtndiv">
                                     <button className="btn btn-primary" id="styled-button-one"
-                                        style={{ width: "160px", height: "40px" }}
+                                        style={{ width: "180px", height: "40px" }}
                                         onClick={onImageUpload}
                                     >
                                         Upload an image

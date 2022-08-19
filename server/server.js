@@ -33,9 +33,9 @@ app.post('/upload', (req, res) => {
 });
 
 app.delete('/delete/:name', (req, res) => {
-        fs.unlinkSync(`${__dirname}/public/${req.params.name}`);
-        return res.status(200).send('Successfully! Image has been Deleted');
-    }
+    fs.unlinkSync(`${__dirname}/public/${req.params.name}`);
+    return res.status(200).send('Successfully! Image has been Deleted');
+}
 );
 
 app.listen(PORT, () => console.log(`Server is up on ${PORT}`));

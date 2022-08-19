@@ -19,7 +19,6 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
     axios
       .get(`http://localhost:8000/api/books/${id}`)
       .then((res) => {
-        console.log(res.data);
         setBook(res.data);
         setLength(res.data.names.length);
         setCreator(res.data.createdBy);
@@ -36,7 +35,6 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
 
   const deleteBook = (bookId) => {
     for (var a = 0; a < book.names.length; a++) {
-      console.log(book.names[a]);
       let name = book.names[a];
       axios.delete(`http://localhost:8000/delete/${name}`).then((res) => {
         console.log("Images deleted successfully");
@@ -56,9 +54,6 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", marginTop: "0em" }}>
-      <h4 style={{ fontSize: "28px", marginTop: "28px" }}>
-        BOOK DETAILS <GiBookCover />
-      </h4>
       <div
         className="app-wrapper"
         style={{
@@ -92,25 +87,26 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "0.5em",
-            fontStyle: "italic"
+            gap: "0.5em"
           }}
         >
           <h2>{book.title}</h2>
           <h3 style={{ color: "#7ba1c2" }}>{book.author}</h3>
           <p>{book.description}</p>
           <table style={{ textAlign: "left" }}>
-            <tr>
-              <td style={{ fontWeight: "bold" }}>Genre:</td>
-              <td>{book.genre}</td>
-            </tr>
-            <tr>
-              <td style={{ fontWeight: "bold" }}>Rating:</td>
-              <td>{book.rating}/5</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td style={{ fontWeight: "bold" }}>Genre:</td>
+                <td>{book.genre}</td>
+              </tr>
+              <tr>
+                <td style={{ fontWeight: "bold" }}>Rating:</td>
+                <td>{book.rating}/5</td>
+              </tr>
+            </tbody>
           </table>
           <p
-            class="btn btn-secondary"
+            className="btn btn-secondary"
             style={{
               marginTop: "20px",
               backgroundColor: "#7ba1c2e0",
@@ -125,7 +121,6 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
               Download book <BsFillCloudDownloadFill />
             </a>
           </p>
-          {console.log(creator, user)}
           {creator === userId ? (
             <div className="details-buttons">
               <button id="styled-button-one">

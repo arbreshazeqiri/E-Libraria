@@ -110,7 +110,7 @@ const NewBook = ({ isLoggedin, setIsLoggedin }) => {
                                 </div>
                                 <div className="mainbtndiv">
                                     <button className="btn btn-primary" id="styled-button-one"
-                                        style={{ width: "160px", height: "40px" }}
+                                        style={{ width: "180px", height: "40px" }}
                                         onClick={onImageUpload}
                                     >
                                         Upload an image

@@ -20,7 +20,7 @@ const Search = () => {
 
     return (
         <div>
-            <h3>Search results:</h3>
+            <h3 style={{textAlign: 'center'}}>Search results:</h3>
             <div className="container">
                 {searchResults.map((book) => (
                     <div key={book._id} className="book">

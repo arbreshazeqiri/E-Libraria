@@ -1,23 +1,20 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
-import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Categories.css";
 
-const Categories = ({}) => {
+const Categories = () => {
   return (
     <div className="top-categories">
-      <h3>TOP CATEGORIES</h3>
+      <h2 style={{marginBottom: "0.5em"}}>TOP CATEGORIES</h2>
       <div className="container3">
         <div className="first">
           <button type="button" className="btn btn-light">
             NOVELA GRAFIKE
           </button>
           <button type="button" className="btn btn-light">
-            FITUESIT E CMIMEVE
+            FITUESIT E ÇMIMEVE
           </button>
           <button type="button" className="btn btn-light">
-            LETERSI SHQIPE
+            LETËRSI SHQIPE
           </button>
           <button type="button" className="btn btn-light">
             GIFT CARDS
@@ -25,13 +22,13 @@ const Categories = ({}) => {
         </div>
         <div className="second">
           <button type="button" className="btn btn-light">
-            NGJARJE TE VERTETA
+            NGJARJE TË VËRTETA
           </button>
           <button type="button" className="btn btn-light">
-            SHENDETI MENDOR
+            SHËNDETI MENDOR
           </button>
           <button type="button" className="btn btn-light">
-            BIOGRAFI FRYMEZUESE
+            BIOGRAFI FRYMËZUESE
           </button>
           <button type="button" className="btn btn-light">
             HISTORI DASHURIE
@@ -39,7 +36,7 @@ const Categories = ({}) => {
         </div>
         <div className="third">
           <button type="button" className="btn btn-light">
-            PRINDERIM
+            PRINDËRIM
           </button>
           <button type="button" className="btn btn-light">
             LIBRA ASTROLOGJIKE
@@ -48,7 +45,7 @@ const Categories = ({}) => {
             LIBRA GATIMI
           </button>
           <button type="button" className="btn btn-light">
-            MENYRE JETESE
+            MËNYRË JETESE
           </button>
         </div>
       </div>

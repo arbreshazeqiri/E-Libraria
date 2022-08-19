@@ -1,20 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
+import promoPicture from '../images/meshari.jpg';
 
 const Register = ({ setIsLoggedin }) => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState([]);
   const [user, setUser] = useState({
     firstname: '',
-    lastname:'',
+    lastname: '',
     email: '',
     username: '',
     password: '',
     confirmPassword: '',
     country: 'Kosovo',
   });
+  const [emails, setEmails] = useState([]);
+  const [usernames, setUsernames] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/users")
+      .then((res) => {
+        Object.keys(res.data).forEach(function (key, index) {
+          emails.push(res.data[key].email);
+          usernames.push(res.data[key].username);
+        });
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const handleChange = (e) => {
     setUser({
@@ -25,27 +40,36 @@ const Register = ({ setIsLoggedin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post('http://localhost:8000/register', user, { withCredentials: true })
-      .then((res) => {
-        console.log(res.data);
-        setIsLoggedin(true);
-        navigate('/');
-      })
-      .catch((err) => {
-        const errorResponse = err.response.data.errors;
-        const errorArr = [];
-        for (const key of Object.keys(errorResponse)) {
-            errorArr.push(errorResponse[key].message)
-        }
-        setErrors(errorArr);
-    })
+    if (!emails.includes(user.email)) {
+      if (!usernames.includes(user.username)) {
+        axios
+          .post('http://localhost:8000/register', user)
+          .then((res) => {
+            setIsLoggedin(true);
+            navigate('/');
+          })
+          .catch((err) => {
+            const errorResponse = err.response.data.errors;
+            const errorArr = [];
+            for (const key of Object.keys(errorResponse)) {
+              errorArr.push(errorResponse[key].message)
+            }
+            setErrors(errorArr);
+          })
+      } else {
+        setErrors('Username is taken.')
+      }
+    }
+    else {
+      setErrors("Email already exists.");
+    }
   };
 
   return (
-    <div className="register-form" style={{marginTop: '3em'}}>
+    <div className="register-form" style={{ marginTop: '3em' }}>
       <div className="promo-pic">
-        <h2>GET READY</h2>
+        <h2 style={{alignSelf: 'center'}}>GET STARTED</h2>
+        <img src={promoPicture} style={{ height: "400px" }} alt="promo"></img>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="name">
@@ -75,7 +99,7 @@ const Register = ({ setIsLoggedin }) => {
           <input type="checkbox" name="terms" placeholder="Terms and Conditions" style={{ width: "20px" }} />I agree to the<a href="/" style={{ padding: "0px 3px" }}>Terms of Use</a>and<a href="/" style={{ padding: "0px 3px" }}>Privacy Policy.</a>
         </span>
         <span style={{ color: 'red' }}>{(errors !== null) ? errors : null}</span>
-        <button id="styled-button-one" type="submit" name="register" style={{ width: "310px" }}>Register</button>
+        <button id="styled-button-one" type="submit" name="register" style={{ width: "300px" }}>Register</button>
       </form>
     </div>
   );
