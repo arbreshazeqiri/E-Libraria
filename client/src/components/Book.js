@@ -4,11 +4,10 @@ import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BsFillCloudDownloadFill } from "react-icons/bs";
-import { GiBookCover } from "react-icons/gi";
 
 const Book = ({ isLoggedin, setIsLoggedin }) => {
   const [book, setBook] = useState({});
-  const [user, setUser] = useState(null);
+  const [setUser] = useState(null);
   const [userId, setUserId] = useState(null);
   const [creator, setCreator] = useState(null);
   const { id } = useParams();
@@ -31,7 +30,7 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
         setUserId(res.data._id);
       })
       .catch((err) => console.log(err));
-  }, [id, isLoggedin]);
+  }, [id, isLoggedin, setUser]);
 
   const deleteBook = (bookId) => {
     for (var a = 0; a < book.names.length; a++) {
@@ -115,7 +114,7 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
           >
             <a
               href={book.link}
-              target="_blank"
+              target="_blank" rel="noreferrer"
               style={{ color: "white", textDecoration: "none" }}
             >
               Download book <BsFillCloudDownloadFill />

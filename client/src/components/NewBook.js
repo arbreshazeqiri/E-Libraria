@@ -1,6 +1,6 @@
 import { useState, useEffect, React } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ImageUploading from 'react-images-uploading';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -100,7 +100,7 @@ const NewBook = ({ isLoggedin, setIsLoggedin }) => {
                                 <div className="row2">
                                     {imageList.map((image, index) => (
                                         <div key={index} className="image-item">
-                                            <img src={image['data_url']} />
+                                            <img src={image['data_url']} alt="uploaded"/>
                                             <div className="image-item__btn-wrapper">
                                                 <button className="btn btn-primary" id="styled-button-two" style={{ width: "80px" }} onClick={() => onImageUpdate(index)}>Update</button>
                                                 <button className="btn btn-danger" id="styled-button-one" style={{ width: "80px" }} onClick={() => onImageRemove(index)}>Remove</button>
@@ -120,7 +120,6 @@ const NewBook = ({ isLoggedin, setIsLoggedin }) => {
                         )}
                     </ImageUploading>
                 </div>
-                {/* <button className="btn btn-primary" onClick={() => uploadimages()}>Submit Images</button> */}
                 <div className="form-wrapper">
                     <form onSubmit={handleSubmit}>
                         <label>Title</label>

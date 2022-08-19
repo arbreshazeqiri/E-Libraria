@@ -7,8 +7,7 @@ import "./BookList.css";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [authors, setAuthors] = useState([]);
+  const [authors] = useState([]);
 
   useEffect(() => {
     axios
@@ -21,13 +20,7 @@ const BookList = () => {
         });
       })
       .catch((err) => console.log(err));
-    axios
-      .get("http://localhost:8000/api/users", { withCredentials: true })
-      .then((res) => {
-        setUsers(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  }, [authors]);
 
   return (
     <div className="even-more-container">

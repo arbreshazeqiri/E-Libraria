@@ -16,8 +16,8 @@ const Register = ({ setIsLoggedin }) => {
     confirmPassword: '',
     country: 'Kosovo',
   });
-  const [emails, setEmails] = useState([]);
-  const [usernames, setUsernames] = useState([]);
+  const [emails] = useState([]);
+  const [usernames] = useState([]);
 
   useEffect(() => {
     axios
@@ -29,7 +29,7 @@ const Register = ({ setIsLoggedin }) => {
         });
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [emails, usernames]);
 
   const handleChange = (e) => {
     setUser({
@@ -46,7 +46,7 @@ const Register = ({ setIsLoggedin }) => {
           .post('http://localhost:8000/register', user)
           .then((res) => {
             setIsLoggedin(true);
-            navigate('/');
+            navigate('/login');
           })
           .catch((err) => {
             const errorResponse = err.response.data.errors;

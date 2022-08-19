@@ -13,14 +13,13 @@ const Search = () => {
             .get(`http://localhost:8000/api/books-by-query/${query}`)
             .then((res) => {
                 setSearchResults(res.data);
-                console.log(res);
             })
             .catch((err) => setError(err));
     }, [query]);
 
     return (
         <div>
-            <h3 style={{textAlign: 'center'}}>Search results:</h3>
+            <h3 style={{ textAlign: 'center' }}>Search results:</h3>
             <div className="container">
                 {searchResults.map((book) => (
                     <div key={book._id} className="book">
@@ -37,6 +36,7 @@ const Search = () => {
                     </div>
                 ))}
             </div >
+            {error ? <span>{error}</span> : null}
         </div>
     );
 };
