@@ -1,28 +1,42 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { FaUser, FaStar, FaRegStar } from 'react-icons/fa';
 
-const Search = ({ keywords }) => {
-    const [resultList, setResultList] = useState([]);
+const Search = () => {
+    const location = useLocation();
+    const query = new URLSearchParams(location.search).get("query");
+    const [searchResults, setSearchResults] = useState([]);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         axios
-            .get("http://localhost:8000/api/books", { withCredentials: true })
+            .get(`http://localhost:8000/api/books-by-query/${query}`)
             .then((res) => {
-                console.log(res.data);
-                console.log(keywords[0]);
-                Object.keys(res.data).forEach(function (key, index) {
-                    if (res.data[key].title.toUpperCase().includes(keywords[0].toUpperCase()) || res.data[key].author.toUpperCase().includes(keywords[0].toUpperCase()))
-                        resultList.push(res.data[key]);
-                });
-                console.log(resultList);
+                setSearchResults(res.data);
+                console.log(res);
             })
-            .catch((err) => console.log(err));
-    }, []);
+            .catch((err) => setError(err));
+    }, [query]);
 
     return (
-        <div className="search-container">
+        <div>
+            <h3>Search results:</h3>
+            <div className="container">
+                {searchResults.map((book) => (
+                    <div key={book._id} className="book">
+                        <div className="front">
+                            <div className="cover">
+                                <Link to={`/book/${book._id}`}>
+                                    <img
+                                        src={require(`../../../server/public/${book.names[0]}`)}
+                                        alt={book.title}
+                                    />
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div >
         </div>
     );
 };

@@ -116,7 +116,7 @@ const BookList = () => {
       </div>
 
       <h3 className="pre-footer">
-        Be part of the community that is transforming our reading experience one
+        Be part of the community that is transforming reading one
         book at a time.
       </h3>
     </div>

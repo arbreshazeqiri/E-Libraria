@@ -14,13 +14,10 @@ import Search from './components/Search';
 
 function App() {
   const [isLoggedin, setIsLoggedin] = useState(false);
-  const [keywords, setKeywords] = useState([]);
-
-  const headerToApp = (headerData) => { setKeywords(headerData); console.log(keywords);}
   return (
     <BrowserRouter>
       <div className="App" style={{ minHeight: "100vh" }}>
-        <Header isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin} headerToApp={headerToApp} />
+        <Header isLoggedin={isLoggedin} setIsLoggedin={setIsLoggedin}/>
         <Routes>
           <Route path="/" element={<BookList />} />
           <Route path="/new" element={<NewBook setIsLoggedin={setIsLoggedin} />} />
@@ -29,7 +26,7 @@ function App() {
           <Route path="/login" element={<Login setIsLoggedin={setIsLoggedin} />} />
           <Route path="/register" element={<Register setIsLoggedin={setIsLoggedin} />} />
           <Route path="/profile/:username" element={<Profile />} />
-          <Route path="/search" element={<Search keywords={keywords}/>} />
+          <Route path="/search" element={<Search />} />
         </Routes>
         <Footer />
       </div>
