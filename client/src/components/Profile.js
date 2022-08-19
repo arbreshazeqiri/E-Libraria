@@ -7,6 +7,7 @@ const Profile = () => {
   const { username } = useParams();
   const [name, setName] = useState(null);
   const [bookList, setBookList] = useState([]);
+  const [setError] = useState([]);
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/books-by-user/${username}`, { withCredentials: true })
@@ -14,8 +15,8 @@ const Profile = () => {
         setName(res.data[1].firstname.toUpperCase() + " " + res.data[1].lastname.toUpperCase());
         setBookList(res.data[0]);
       })
-      .catch((err) => console.log(err));
-  }, [username]);
+      .catch((err) => setError(err));
+  }, [username, setError]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>

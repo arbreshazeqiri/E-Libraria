@@ -7,7 +7,7 @@ import { BsFillCloudDownloadFill } from "react-icons/bs";
 
 const Book = ({ isLoggedin, setIsLoggedin }) => {
   const [book, setBook] = useState({});
-  const [setUser] = useState(null);
+  const [user, setUser] = useState(null);
   const [userId, setUserId] = useState(null);
   const [creator, setCreator] = useState(null);
   const { id } = useParams();
@@ -104,21 +104,21 @@ const Book = ({ isLoggedin, setIsLoggedin }) => {
               </tr>
             </tbody>
           </table>
-          <p
-            className="btn btn-secondary"
-            style={{
-              marginTop: "20px",
-              backgroundColor: "#7ba1c2e0",
-              border: "none"
-            }}
-          >
-            <a
-              href={book.link}
-              target="_blank" rel="noreferrer"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              Download book <BsFillCloudDownloadFill />
-            </a>
+          <p className="btn btn-secondary" style={{
+            marginTop: "20px",
+            backgroundColor: "#7ba1c2e0",
+            border: "none"
+          }}>
+            {user ?
+              (<a
+                href={book.link}
+                target="_blank" rel="noreferrer"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Download book <BsFillCloudDownloadFill />
+              </a>) : <Link to="/login" className="login-btn">
+                Log in to download book <BsFillCloudDownloadFill />
+              </Link>}
           </p>
           {creator === userId ? (
             <div className="details-buttons">

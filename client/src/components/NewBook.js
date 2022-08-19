@@ -102,8 +102,8 @@ const NewBook = ({ isLoggedin, setIsLoggedin }) => {
                                         <div key={index} className="image-item">
                                             <img src={image['data_url']} alt="uploaded"/>
                                             <div className="image-item__btn-wrapper">
-                                                <button className="btn btn-primary" id="styled-button-two" style={{ width: "80px" }} onClick={() => onImageUpdate(index)}>Update</button>
-                                                <button className="btn btn-danger" id="styled-button-one" style={{ width: "80px" }} onClick={() => onImageRemove(index)}>Remove</button>
+                                                <button className="btn btn-primary" id="styled-button-two" onClick={() => onImageUpdate(index)}>Update</button>
+                                                <button className="btn btn-danger" id="styled-button-one" onClick={() => onImageRemove(index)}>Remove</button>
                                             </div>
                                         </div>
                                     ))}
@@ -143,6 +143,10 @@ const NewBook = ({ isLoggedin, setIsLoggedin }) => {
                             <option value="Self-help">Self-help</option>
                             <option value="Psychology">Psychology</option>
                             <option value="Autobiography">Autobiography</option>
+                            <option value="History">History</option>
+                            <option value="Historical-fiction">Historical-fiction</option>
+                            <option value="Contemporary">Contemporary</option>
+                            <option value="Fantasy">Fantasy</option>
                         </select>
                         {errors.genre && <span className="text-danger">{errors.genre.message}</span>}
                         <label>Rating</label>

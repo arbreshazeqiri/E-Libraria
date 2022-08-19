@@ -4,48 +4,51 @@ import "./Categories.css";
 const Categories = () => {
   return (
     <div className="top-categories">
-      <h2 style={{marginBottom: "0.5em"}}>TOP CATEGORIES</h2>
+      <h2 style={{marginBottom: "0.5em"}}>FILTER BOOKS BY GENRE</h2>
       <div className="container3">
         <div className="first">
           <button type="button" className="btn btn-light">
-            NOVELA GRAFIKE
+            MYSTERY
           </button>
           <button type="button" className="btn btn-light">
-            FITUESIT E ÇMIMEVE
+            DRAMA
           </button>
           <button type="button" className="btn btn-light">
-            LETËRSI SHQIPE
+            THRILLER
           </button>
           <button type="button" className="btn btn-light">
-            GIFT CARDS
+            PSYCHOLOGY
+          </button>
+          <button type="button" className="btn btn-light">
+            FICTION
           </button>
         </div>
         <div className="second">
           <button type="button" className="btn btn-light">
-            NGJARJE TË VËRTETA
+            ROMANCE
           </button>
           <button type="button" className="btn btn-light">
-            SHËNDETI MENDOR
+            NON-FICTION
           </button>
           <button type="button" className="btn btn-light">
-            BIOGRAFI FRYMËZUESE
+            AUTOBIOGRAPHY
           </button>
           <button type="button" className="btn btn-light">
-            HISTORI DASHURIE
+            SELF-HELP
           </button>
         </div>
         <div className="third">
           <button type="button" className="btn btn-light">
-            PRINDËRIM
+            HISTORY
           </button>
           <button type="button" className="btn btn-light">
-            LIBRA ASTROLOGJIKE
+            HISTORICAL-FICTION
           </button>
           <button type="button" className="btn btn-light">
-            LIBRA GATIMI
+            CONTEMPORARY
           </button>
           <button type="button" className="btn btn-light">
-            MËNYRË JETESE
+            FANTASY
           </button>
         </div>
       </div>

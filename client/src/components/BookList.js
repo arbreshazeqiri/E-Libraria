@@ -11,7 +11,7 @@ const BookList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/books", { withCredentials: true })
+      .get("http://localhost:8000/api/books")
       .then((res) => {
         setBooks(res.data);
         Object.keys(res.data).forEach(function (key, index) {
@@ -47,7 +47,7 @@ const BookList = () => {
       </div>
       <h2
         style={{
-          marginBottom: "0.5em"
+          marginTop: "1em"
         }}
       >
         EXPLORE OUR DIGITAL LIBRARY
@@ -71,11 +71,10 @@ const BookList = () => {
       <Categories />
 
       <h2 style={{marginBottom: "1em"}}>
-        SOME OF OUR FAVORITE AUTHORS
+        FILTER BOOKS BY AUTHOR
       </h2>
       <div className="users-container">
-        {authors
-          .map((author, i) => (
+        {authors.map((author, i) => (
             <div className="user-card" key={i}>
               <button type="button" className="btn btn-light">
                 {author}

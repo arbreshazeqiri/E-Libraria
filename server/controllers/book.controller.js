@@ -2,6 +2,7 @@ const Book = require('../models/book.model');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.JWT_SECRET;
 const User = require('../models/user.model');
+const { exists } = require('../models/book.model');
 
 module.exports = {
     getBooks: (req, res) => {
@@ -16,7 +17,6 @@ module.exports = {
             });
     },
     getBooksByUser: (req, res) => {
-        console.log('IS THIS WORKING', req.params.username);
         User.findOne({ username: req.params.username }).then((user) => {
             Book.find({ createdBy: user._id })
                 .populate('createdBy', 'username email')
@@ -25,11 +25,14 @@ module.exports = {
                     res.json([books, user]);
                 })
                 .catch((err) => {
-                    console.log('ERROR IN Get all', err);
                     res.status(400).json({ message: 'something went wrong in find all books by user', error: err });
                 })
-        });
+        })
+            .catch((err) => {
+                res.status(400).json({ message: "User doesn't exists.", error: err })
+            });
     },
+
     getBookById: (req, res) => {
         Book.findOne({ _id: req.params.id })
             .then((book) => {

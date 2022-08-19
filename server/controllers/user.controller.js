@@ -26,7 +26,6 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const userDocument = await User.findOne({ email: req.body.email });
-  console.log('USERDOC', userDocument);
   if (!userDocument) {
     res.status(400).json({ error: 'Email not registered.' });
   } else {
@@ -39,14 +38,12 @@ const login = async (req, res) => {
           { _id: userDocument._id, email: userDocument.email, username: userDocument.username },
           SECRET,
         );
-        console.log('JWT:', userToken);
         res
           .status(201)
           .cookie('userToken', userToken, { expires: new Date(Date.now() + 900000) })
           .json({ successMessage: 'user loggedin', user: userDocument });
       }
     } catch (error) {
-      console.log('LOGIN ERROR', error);
       res.status(400).json({ error: 'Invalid credentials.' });
     }
   }

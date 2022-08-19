@@ -155,6 +155,10 @@ const EditBook = ({ isLoggedin, setIsLoggedin }) => {
                             <option value="Self-help">Self-help</option>
                             <option value="Psychology">Psychology</option>
                             <option value="Autobiography">Autobiography</option>
+                            <option value="History">History</option>
+                            <option value="Historical-fiction">Historical-fiction</option>
+                            <option value="Contemporary">Contemporary</option>
+                            <option value="Fantasy">Fantasy</option>
                         </select>
                         {errors.genre && <span className="text-danger">{errors.genre.message}</span>}
                         <label>Rating</label>

@@ -175,6 +175,12 @@
 .image-item__btn-wrapper {
   display: flex;
   justify-content: space-between;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.image-item__btn-wrapper button {
+  padding: 0;
 }
 
 .upload__image-wrapper {
@@ -255,7 +261,7 @@ textarea {
 .profile-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 10px;
   width: 1000px;
 }
@@ -286,4 +292,13 @@ textarea {
   flex-direction: column;
   gap: 0.1em;
   justify-content: center;
+}
+
+.login-btn {
+  color: white;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  color: white;
 }
