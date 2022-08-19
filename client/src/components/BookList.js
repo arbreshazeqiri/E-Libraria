@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import Categories from "./Categories";
 import axios from "axios";
@@ -8,6 +8,7 @@ import "./BookList.css";
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const [authors] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -70,17 +71,17 @@ const BookList = () => {
       </div>
       <Categories />
 
-      <h2 style={{marginBottom: "1em"}}>
+      <h2 style={{ marginBottom: "1em" }}>
         FILTER BOOKS BY AUTHOR
       </h2>
       <div className="users-container">
         {authors.map((author, i) => (
-            <div className="user-card" key={i}>
-              <button type="button" className="btn btn-light">
-                {author}
-              </button>
-            </div>
-          ))}
+          <div className="user-card" key={i}>
+            <button type="button" className="btn btn-light" onClick={(e) => navigate('/filter/' + author)}>
+              {author}
+            </button>
+          </div>
+        ))}
       </div>
 
       <h3 className="pre-footer">

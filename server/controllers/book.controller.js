@@ -43,9 +43,29 @@ module.exports = {
                 res.status(400).json({ message: 'Something went wrong in find one book', error: err });
             });
     },
-    getBookByQuery: (req, res) => {
+    getBooksByQuery: (req, res) => {
         const q = req.params.query;
         Book.find({ $or: [{ title: { $regex: q, $options: 'i' } }, { author: { $regex: q, $options: 'i' } }] })
+            .then((book) => {
+                res.status(201).json(book)
+            })
+            .catch((err) => {
+                console.log("ERRORR IN GET ONE BOOK", err);
+                res.status(400).json({ message: 'Something went wrong in find one book', error: err });
+            });
+    },
+    getBooksByGenre: (req, res) => {
+        Book.find({genre: req.params.genre})
+            .then((book) => {
+                res.status(201).json(book)
+            })
+            .catch((err) => {
+                console.log("ERRORR IN GET ONE BOOK", err);
+                res.status(400).json({ message: 'Something went wrong in find one book', error: err });
+            });
+    },
+    getBooksByAuthor: (req, res) => {
+        Book.find({ author: req.params.author})
             .then((book) => {
                 res.status(201).json(book)
             })

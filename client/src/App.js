@@ -11,6 +11,7 @@ import Register from './components/Register';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
 import Search from './components/Search';
+import FilterAuthors from './components/FilterAuthors';
 
 function App() {
   const [isLoggedin, setIsLoggedin] = useState(false);
@@ -27,6 +28,7 @@ function App() {
           <Route path="/register" element={<Register setIsLoggedin={setIsLoggedin} />} />
           <Route path="/profile/:username" element={<Profile />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/filter/:author" element={<FilterAuthors />} />
         </Routes>
         <Footer />
       </div>
