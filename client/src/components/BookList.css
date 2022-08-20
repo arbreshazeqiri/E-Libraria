@@ -244,3 +244,49 @@ body {
 .left-side h2 span:last-child {
   font-family: acumin-pro, sans-serif;
 }
+
+.sort-icon {
+  text-decoration: none;
+  color: lightgrey;
+  background-color: white;
+  border: none;
+  margin-top: -2em;
+}
+
+.sort-icon button {
+  background-color: white;
+  border: none;
+  color: #7ba1c2;
+}
+
+.sort-icon button:focus {
+  background-color: white;
+  border: none;
+  color: #7ba1c2;
+}
+
+.sort-icon button:hover {
+  background-color: white;
+  border: none;
+  color: #7ba1c2;
+}
+
+.sort-icon button:active {
+  background-color: white;
+  border: none;
+  color: #7ba1c2;
+}
+
+.dropdown-menu.show {
+  --bs-dropdown-link-active-bg: transparent;
+  --bs-dropdown-link-active-color: #212529;
+  --bs-dropdown-link-hover-color: #7ba1c2;
+}
+
+.btn-primary {
+  --bs-btn-focus-shadow-rgb: transparent !important;
+}
+
+.btn {
+  --bs-btn-focus-box-shadow: none;
+}
